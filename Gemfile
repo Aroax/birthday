@@ -10,4 +10,5 @@ group :development, :test do
   gem "webrick", :require => true
   gem "sinatra-contrib", :require => true
   gem "capybara", :require => true
+  gem "timecop", :require => true
 end

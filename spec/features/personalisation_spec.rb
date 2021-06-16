@@ -11,4 +11,13 @@ feature 'it can be personalised' do
     enter_name_and_birthday
     expect(page). to have_content('Your birthday is: 1986-09-03')
   end
+
+  context 'when not your birthday' do
+      scenario 'it tells you how long until your birthday' do
+        
+        enter_name_and_birthday
+        expect(page).to have_content('It is ')
+      end
+  end
+
 end
