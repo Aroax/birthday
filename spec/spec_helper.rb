@@ -98,3 +98,19 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+# add this to spec/spec_helper.rb
+
+ENV['RACK_ENV'] = 'test'
+
+# require our Sinatra app file
+require File.join(File.dirname(__FILE__), '../lib/', 'app.rb')
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+require_relative 'features/web_helpers.rb'
+
+# tell Capybara about our app class
+Capybara.app = Birthday
