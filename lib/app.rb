@@ -11,11 +11,13 @@ class Birthday < Sinatra::Base
 
   post '/results' do
     session[:name] = params[:Name]
+    session[:birthday] = params[:Birthday]
     redirect('/display')
   end
 
   get '/display' do
     @name = session[:name]
+    @birthday = session[:birthday]
     erb :display
   end
 
