@@ -6,7 +6,17 @@ class Birthday < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "hello, world!"
+    erb :index
+  end
+
+  post '/results' do
+    session[:name] = params[:Name]
+    redirect('/display')
+  end
+
+  get '/display' do
+    @name = session[:name]
+    erb :display
   end
 
   run! if app_file == $0
